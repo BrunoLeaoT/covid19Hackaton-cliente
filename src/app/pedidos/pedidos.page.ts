@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ComprasService } from 'src/service/compras-service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-pedidos',
@@ -19,14 +20,25 @@ export class PedidosPage implements OnInit {
   getPropostas(){
     this.comprasService.getPropostas().then(data => {
       let result:any = data;
-      console.log(result)
       result.forEach(element => {
-        console.log(element)
         let forne = element.data.restauranteCod.split("-",1);
-        if(forne[0] == "Arabe")
-            this.propostas.push({nome: element.id.split("-",1)[0], precoTotal: 400.00});
+        if(forne[0] == "Arabe"){
+            this.comprasService.getProdutos(element.id).then(data=>{
+              let soma = this.somarProdutosPreco(data);
+              this.propostas.push({nome: element.id.split("-",1)[0], precoTotal: soma});
+            })
+        }
     });
     })
+  }
+
+  somarProdutosPreco(produtos:any){
+    let somaTotal = 0;
+    console.log(produtos)
+    produtos.forEach(element => {
+      somaTotal += (element.data.valor * element.data.quantidade);
+    });
+    return somaTotal;
   }
 
 }
