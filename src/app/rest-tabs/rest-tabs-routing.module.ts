@@ -5,7 +5,7 @@ import { RestTabsPage } from './rest-tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'newTabs',
     component: RestTabsPage,
     children: [
       {
@@ -38,26 +38,16 @@ const routes: Routes = [
           }
         ]
       },
-            {
-        path: 'tab3',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../proposta/proposta.module').then(m => m.PropostaPageModule)
-          }
-        ]
-      },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/newTabs/pedidos',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/newTabs/pedidos',
     pathMatch: 'full'
   }
 ];

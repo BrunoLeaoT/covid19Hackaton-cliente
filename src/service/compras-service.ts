@@ -13,19 +13,18 @@ export class ComprasService{
 
     criarCarrinho(nome){
         return new Promise((resolve, reject)=>{
-            var headers = new Headers();
-            headers.append('Content-Type', 'application/json' );
+            let httpOptions = {
+                headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+            };
             
             let postData =  JSON.stringify({
                 nome: nome
             })
             
-            this.http.post(this.url + "/CarrinhoDeCompras", postData,{observe: 'response'})
+            this.http.post(this.url + "CarrinhoDeCompras", postData, httpOptions)
             .subscribe(data => {
                 console.log(data);
-                if(data.status == 200){
-                    return resolve(data.body)
-                }
+                return resolve(data)
             }, error => {
                console.log(error);
             })
@@ -54,8 +53,9 @@ export class ComprasService{
     
     adicionarProdutosCarrinho(restCod, nomeProduto, quantidade){
         return new Promise((resolve, reject)=>{
-            var headers = new Headers();
-            headers.append('Content-Type', 'application/json' );
+            let httpOptions = {
+                headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+            };
             
             let postData =  JSON.stringify({
                 restCod: restCod,
@@ -63,12 +63,10 @@ export class ComprasService{
                 quantidade: quantidade
             })
             
-            this.http.post(this.url + "/CarrinhoProdutos", postData,{observe: 'response'})
+            this.http.post(this.url + "CarrinhoProdutos", postData,httpOptions)
             .subscribe(data => {
                 console.log(data);
-                if(data.status == 200){
-                    return resolve(data.body)
-                }
+                return resolve(data);
             }, error => {
                console.log(error);
             })

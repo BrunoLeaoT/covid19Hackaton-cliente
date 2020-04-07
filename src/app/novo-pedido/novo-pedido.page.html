@@ -1,9 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>novoPedido</ion-title>
+    <ion-title>Novo Pedido</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngFor="let produto of produtos">
+    <ion-card-header>
+      {{produto.nome}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="changeValue(false,produto)">
+        <ion-icon name="remove-circle-outline"></ion-icon>
+      </ion-button>
+      <span>{{produto.quantidade}} Kg</span>
+      <ion-button (click)="changeValue(true,produto)">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-button class="buttonCont" color="success" (click)="continuar()">> Continuar</ion-button>
 </ion-content>

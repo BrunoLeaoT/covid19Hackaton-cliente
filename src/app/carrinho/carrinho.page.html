@@ -5,5 +5,28 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngFor="let produto of produtos">
+    <ion-card-header>
+      {{produto.nome}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="changeValue(false,produto)">
+        <ion-icon name="remove-circle-outline"></ion-icon>
+      </ion-button>
+      <span>{{produto.quantidade}} Kg</span>
+      <ion-button (click)="changeValue(true,produto)">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-input type="date"></ion-input>
+  <h5>Meio de Pagamento prefencial</h5>
+  <ion-label>Debito</ion-label>
+  <ion-checkbox> </ion-checkbox>
+  <ion-label>Credito</ion-label>
+  <ion-checkbox> </ion-checkbox>
+  <ion-label>Dinheiro</ion-label>
+  <ion-checkbox> </ion-checkbox>
+  <ion-button class="buttonCancelar" color="danger" (click)="cancelar()">x Cancelar</ion-button>
+  <ion-button class="buttonCont" color="success" (click)="concluir()"> Concluir</ion-button>
 </ion-content>

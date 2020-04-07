@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
       this.navCtrl.navigateRoot("app/tabs/tab1")
     }
     else{
-      this.navCtrl.navigateRoot("app/tabs/tab1")
+      this.navCtrl.navigateRoot("rest-tabs/newTabs/novo-pedido")
     }
   }
 }
