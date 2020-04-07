@@ -33,7 +33,17 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../proposta/proposta.module').then(m => m.PropostaPageModule)
+          }
+        ]
+      },
+            {
+        path: 'tab3',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../proposta/proposta.module').then(m => m.PropostaPageModule)
           }
         ]
       },

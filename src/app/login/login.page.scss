@@ -1,0 +1,21 @@
+.loginRes{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.loginProd{
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.vertical{
+    border-left: 2px solid gray;
+    height: 60%;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+}

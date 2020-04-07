@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Carrinho De Compras</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let produto of produtos" (click)="verCarrinho(carrinho.id)">
+    <ion-card-header>
+      {{produto.id}}
+    </ion-card-header>
+    <ion-card-content>
+      {{produto.data.quantidade}}
+    </ion-card-content>
+  </ion-card>
+  <ion-button color="danger" (click)="voltar()">Voltar</ion-button>
+</ion-content>

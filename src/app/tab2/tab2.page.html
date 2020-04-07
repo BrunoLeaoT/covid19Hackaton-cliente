@@ -1,17 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Suas Negociações
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card *ngFor="let proposta of propostas" (click)="verCarrinho(carrinho.id)">
+    <ion-card-header>
+      {{proposta.data.restauranteCod}} - Data
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let produto of proposta.produtos" (click)="verCarrinho(carrinho.id)">
+        <p>{{produto.id}} - Quantidade: {{produto.data.quantidade}} - Preço: {{produto.data.valor}}</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>

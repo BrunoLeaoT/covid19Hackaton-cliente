@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Proposta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-input [(ngModel)] = "produto.nome" placeholder="Nome do produto"></ion-input>
+  <ion-input [(ngModel)] = "produto.quantidade" placeholder="Quantidade"></ion-input>
+  <ion-input [(ngModel)] = "produto.valor" placeholder="Valor"></ion-input>
+  <ion-button (click)="addProduto()">Adicionar Produto</ion-button>
+  <ion-list *ngFor="let produto of produtos">
+    <ion-item>
+      {{produto.nome}}
+    </ion-item>
+  </ion-list>
+  <ion-input [(ngModel)] = "cod" placeholder="Codigo do Carrinho"></ion-input>
+  <ion-button (click)="concluir()">Adicionar Produto</ion-button>
+</ion-content>

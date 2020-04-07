@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="loginRes">
+      <ion-input placeholder="Nome de usuario"></ion-input>
+      <ion-input placeholder="Senha"></ion-input>
+      <ion-button (click)="login(false)">
+    Login Restaurante
+  </ion-button>
+  </div>
+  <div class="vertical"></div>
+  <div class="loginProd">
+    <ion-input placeholder="Nome de usuario"></ion-input>
+    <ion-input placeholder="Senha"></ion-input>
+    <ion-button (click)="login(true)">
+      Login Produtor
+    </ion-button>
+  </div>
+
+</ion-content>
