@@ -5,5 +5,17 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngFor="let proposta of propostas">
+    <ion-card-header>
+      <h3>{{proposta.nome}}</h3> <ion-icon name="star-outline"></ion-icon>4,5
+      <h1>R$ {{proposta.precoTotal}}</h1>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Data de Entrega</p>
+      <span>17/12/2020</span>
+      <ion-button color="success" >
+        Escolher
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
