@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'pedidos',
     loadChildren: () => import('./pedidos/pedidos.module').then( m => m.PedidosPageModule)
+  },
+  {
+    path: 'rest-tabs',
+    loadChildren: () => import('./rest-tabs/rest-tabs.module').then( m => m.RestTabsPageModule)
   }
 ];
 @NgModule({

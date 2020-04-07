@@ -1,33 +1,44 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { TabsPage } from './tabs.page';
+import { Routes, RouterModule } from '@angular/router';
+
+import { RestTabsPage } from './rest-tabs.page';
 
 const routes: Routes = [
   {
     path: 'tabs',
-    component: TabsPage,
+    component: RestTabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'novo-pedido',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../novo-pedido/novo-pedido.module').then(m => m.NovoPedidoPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'carrinho',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../carrinho/carrinho.module').then(m => m.CarrinhoPageModule)
           }
         ]
       },
       {
+        path: 'pedidos',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pedidos/pedidos.module').then(m => m.PedidosPageModule)
+          }
+        ]
+      },
+            {
         path: 'tab3',
         children: [
           {
@@ -37,7 +48,6 @@ const routes: Routes = [
           }
         ]
       },
-      
       {
         path: '',
         redirectTo: '/tabs/tab1',
@@ -54,6 +64,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TabsPageRoutingModule {}
+export class RestTabsPageRoutingModule {}
